@@ -42,12 +42,15 @@ const DogInfo = () => {
   
   return(
     <div className="DogInfo">
-      <h2>{ dog && dog.name}</h2>
-      <div className="attributesContainer">
-        <div className="attribute">{dog.group}</div>
-        <div className="attribute">{dog.weight} lbs</div>
-        <div className="attribute">{dog.bred_for}</div>
+      <div className="infoContainer">
+        <h2>{ dog && dog.name}</h2>
+        <div className="attributesContainer">
+          <div className="attribute">{dog.group}</div>
+          <div className="attribute">{dog.weight} lbs</div>
+          <div className="attribute">{dog.bred_for}</div>
+        </div>
       </div>
+      
       <img src={dog.image} />
       <button onClick={handleChange}>🐾Discover!🐾</button>
     </div>
