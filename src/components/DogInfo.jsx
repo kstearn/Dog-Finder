@@ -16,17 +16,17 @@ const DogInfo = () => {
   const handleChange = () => {
     
     const fetchData = async () => {
-      const response = await fetch(`${url}breeds`);
+      const response = await fetch(`${url}breeds?api_key=${api_key}`);
       const data = await response.json();
       console.log(data);
       let item = data[Math.floor(Math.random() * data.length)];
 
-      const resp = await fetch(`${url}images/${item.reference_image_id}`);
+      const resp = await fetch(`${url}images/${item.reference_image_id}?api_key=${api_key}`);
       console.log(resp);
       const dat = await resp.json();
       let img_url = dat.url;
       
-      await setDog({
+      setDog({
         name: item.name, 
         group: item.breed_group,
         bred_for: item.bred_for,
@@ -42,16 +42,20 @@ const DogInfo = () => {
   
   return(
     <div className="DogInfo">
-      <div className="infoContainer">
-        <h2>{ dog && dog.name}</h2>
-        <div className="attributesContainer">
-          <div className="attribute">{dog.group}</div>
-          <div className="attribute">{dog.weight} lbs</div>
-          <div className="attribute">{dog.bred_for}</div>
+      {dog.name !== "" ? (
+        <div className="infoContainer">
+          <h2>{ dog && dog.name}</h2>
+          <div className="attributesContainer">
+            {dog.group ? (<div className="attribute">{dog.group}</div>) : (<div></div>)}
+            <div className="attribute">{dog.weight} lbs</div>
+            {dog.bred_for ? (<div className="attribute">{dog.bred_for}</div>) : (<div></div>)}
+          </div>
+          <img src={dog.image} />
         </div>
-      </div>
+      ) : (
+        <div><h2>Click the button below to get started!</h2></div>
+      )}
       
-      <img src={dog.image} />
       <button onClick={handleChange}>🐾Discover!🐾</button>
     </div>
   );

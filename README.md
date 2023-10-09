@@ -4,7 +4,7 @@ Submitted by: **Katelyn Stearn**
 
 This web app: **fetches information and an image about a random dog from The Dog API**
 
-Time spent: **6** hours spent in total
+Time spent: **8** hours spent in total
 
 ## Required Features
 

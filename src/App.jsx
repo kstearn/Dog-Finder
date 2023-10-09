@@ -5,7 +5,7 @@ export default function App() {
   return (
     <main className="App">
       <h1>Dog Finder</h1>
-      <p>Info text here 🐶</p>
+      <p>Let's explore different dog breeds! 🐶</p>
       <DogInfo />
     </main>
   )
