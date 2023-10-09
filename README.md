@@ -2,9 +2,9 @@
 
 Submitted by: **Katelyn Stearn**
 
-This web app: **fetches information and an image about a random dog from The Dog API**
+This web app: **fetches information and an image about a random dog from [The Dog API](https://thedogapi.com). Allows the user to ban categories by clicking on them, and to remove them from the ban list by clicking them within the Ban List pane.**
 
-Time spent: **8** hours spent in total
+Time spent: **9** hours spent in total
 
 ## Required Features
 
@@ -14,12 +14,12 @@ The following **required** functionality is completed:
 - [X] **Only one item/API call is viewable at a time**
 - [X] **API calls appear random to the user**
 - [X] **At least one image is displayed per API call**
-- [ ] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
-- [ ] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
+- [X] **Clicking on a displayed value for one attribute adds it to a displayed ban list**
+- [X] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**
 
 The following **optional** features are implemented:
 
-- [ ] Multiple types of attributes can be added to the ban list
+- [X] Multiple types of attributes can be added to the ban list
 - [ ] Users can see a stored history of their previously viewed items from their session
 
 The following **additional** features are implemented:
@@ -30,14 +30,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Video Walkthrough](https://i.imgur.com/Y0emm8D.gif)
 
-<!-- Replace this with whatever GIF tool you used! -->
+
 GIF created with ...  
-<!-- Recommended tools:
+
 [Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+
 
 ## Notes
 

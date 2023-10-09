@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import BanList from './BanList';
 
 const DogInfo = () => {
   const url = "https://api.thedogapi.com/v1/";
@@ -9,7 +10,6 @@ const DogInfo = () => {
     group: "",
     bred_for: "",
     weight: "",
-    origin: "",
     image: ""
   });
 
@@ -18,37 +18,50 @@ const DogInfo = () => {
     const fetchData = async () => {
       const response = await fetch(`${url}breeds?api_key=${api_key}`);
       const data = await response.json();
-      console.log(data);
+      
       let item = data[Math.floor(Math.random() * data.length)];
 
-      const resp = await fetch(`${url}images/${item.reference_image_id}?api_key=${api_key}`);
-      console.log(resp);
-      const dat = await resp.json();
-      let img_url = dat.url;
+      while (list.includes(item.breed_group) ||
+            list.includes(item.bred_for) ||
+            list.includes(item.weight.imperial)) {
+        item = data[Math.floor(Math.random() * data.length)];
+      }
+
       
       setDog({
         name: item.name, 
         group: item.breed_group,
         bred_for: item.bred_for,
         weight: item.weight.imperial,
-        origin: item.origin,
-        image: img_url
+        image: item.image.url
       });  
     }
     fetchData();
   }
+
+  const [list, setList] = useState([]);
   
+  const handleBan = (e) => {
+    if (!list.includes(e.target.innerHTML)) {
+      setList(list => [...list, e.target.innerHTML]);
+    }
+  }
 
   
   return(
-    <div className="DogInfo">
+    <div className="mainContainer">
+      <div className="DogInfo">
       {dog.name !== "" ? (
         <div className="infoContainer">
           <h2>{ dog && dog.name}</h2>
           <div className="attributesContainer">
-            {dog.group ? (<div className="attribute">{dog.group}</div>) : (<div></div>)}
-            <div className="attribute">{dog.weight} lbs</div>
-            {dog.bred_for ? (<div className="attribute">{dog.bred_for}</div>) : (<div></div>)}
+            
+            {dog.group ? (<div className="attribute" onClick={e => handleBan(e)}>{dog.group}</div>) : (<div></div>)}
+            
+            <div className="attribute" onClick={e => handleBan(e)}>{dog.weight} lbs</div>
+            
+            {dog.bred_for ? (<div className="attribute" onClick={e => handleBan(e)}>{dog.bred_for}</div>) : (<div></div>)}
+            
           </div>
           <img src={dog.image} />
         </div>
@@ -56,8 +69,12 @@ const DogInfo = () => {
         <div><h2>Click the button below to get started!</h2></div>
       )}
       
-      <button onClick={handleChange}>🐾Discover!🐾</button>
+        <button onClick={handleChange}>🐾Discover!🐾</button>
+      </div>
+      
+    <BanList list={list} setList={setList}/>
     </div>
+    
   );
 }
 

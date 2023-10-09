@@ -1,28 +1,33 @@
 :root {
-  background: darkslategray
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background: #69A3A3
 }
 
 .App {
-  background: darkslategray;
   font-family: Arial;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mainContainer {
+  background: #69A3A3;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
 }
 
 .DogInfo {
   background: gray;
-  width: 60%;
+  width: 50em;
   height: 30em;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px darkslategray;
 }
 
 .DogInfo img {
@@ -55,4 +60,30 @@ button {
   font-size: 1.5em;
   border-radius: 7px;
   margin-bottom: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.BanList {
+  background: gray;
+  width: 15em;
+  margin-left: 25px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px darkslategray;
+}
+
+.attribute:hover {
+  box-shadow: 2px 2px 2px #4F4F4F;
+  cursor: pointer;
+}
+
+.BanList .attribute {
+  height: auto;
+}
+
+h1 {
+  font-size: 3em;
 }
